@@ -8,7 +8,6 @@ exports.run = async (client, message, args) => {
     return message.reply("Ekonomi sistemi şu anda kapalı.");
   }
 
-  // Hedef kullanıcıyı belirle (etiketlenen ya da mesaj yazan kullanıcı)
   let targetUser = message.mentions.users.first() || message.author;
   let userData = db.get(`economy_${targetUser.id}`);
 
@@ -20,7 +19,6 @@ exports.run = async (client, message, args) => {
     };
   }
 
-  // Embed mesajını oluştur
   const embed = new EmbedBuilder()
     .setColor(Colors.Blue)
     .setTitle("Ekonomi Sistemi")

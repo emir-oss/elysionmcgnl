@@ -1,14 +1,9 @@
 module.exports = {
-    token: "", //Botun Tokenini giriniz.
-    prefix: "n.",  //Prefixniz.
-    botStatus: "", //Botun Durumu
-    ownerID: "",  // Bot sahibinin idsi
-    logChannelId: "",  // Botun eklendiği sunucuların logunu atıcağı kanalın idsi
-    website: "https://discord.gg/weebdev"  //yoksa boş bırakabilirsiniz.
+    token: "", // Botun tokeni
+    prefix: "n.",  // Botun Prefixi 
+    botStatus: "Tate No Yuuusha", // Botun Durumu
+    ownerID: "",// Sizin idniz.
+    logChannelId: "", // Log Kanalı ID'si
+    website: "https://oktaydev.com.tr"// Yoksa boş bırakabilirsiniz.
 }
 
-
-
-/*
-Sunumuza katılarak destek alabilsiniz. https://discord.gg/weebdev // https://discord.gg/dvCKjxHn35 
-*/
