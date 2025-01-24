@@ -78,7 +78,7 @@ client.on('guildMemberAdd', async (member) => {
             const embed = new EmbedBuilder()
                 .setColor('#0099ff')
                 .setDescription(embedDescription)
-                .setImage('https://i.hizliresim.com/nf0b3d7.gif')
+                .setImage('https://i.imgur.com/ilL22Pn.gif')
                 .setTimestamp();
 
             welcomeChannel.send({ content: member.toString(), embeds: [embed] });
@@ -105,7 +105,7 @@ client.on('guildMemberRemove', async (member) => {
             const embed = new EmbedBuilder()
                 .setColor('#0099ff')
                 .setDescription(embedDescription)
-                .setImage('https://i.hizliresim.com/olueffp.gif')
+                .setImage('https://i.imgur.com/9zbqYIm.gif')
                 .setTimestamp();
 
             goodbyeChannel.send({ embeds: [embed] });

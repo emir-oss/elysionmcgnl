@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
         const embed = new EmbedBuilder()
             .setColor(Colors.Orange)
             .setDescription(`**${targetUser.user.tag} atıldı.**\nSebep: ${reason}`)
-            .setImage('https://i.hizliresim.com/oekcos5.gif')
+            .setImage('https://i.imgur.com/wkfbyva.gif')
             .setTimestamp();
         message.reply({ embeds: [embed] });
 

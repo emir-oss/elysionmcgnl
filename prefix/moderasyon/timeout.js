@@ -26,7 +26,7 @@ exports.run = async (client, message, args) => {
         const embed = new EmbedBuilder()
             .setColor(Colors.Yellow)
             .setDescription(`**${targetUser.user.tag} ${durationMs / 1000 / 60} dakika süreyle timeout'a alındı.**\nSebep: ${reason}`)
-            .setImage('https://i.hizliresim.com/oekcos5.gif')
+            .setImage('https://i.imgur.com/wkfbyva.gif')
             .setTimestamp();
         message.reply({ embeds: [embed] });
 

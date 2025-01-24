@@ -49,7 +49,7 @@ exports.run = async (client, message, args) => {
         .setDescription(`Ödül: ${prize}\nKatılmak veya ayrılmak için butona tıklayın!\n\nBitiş zamanı: <t:${Math.floor((Date.now() + duration) / 1000)}:R>`)
         .setFooter({ text: `Çekiliş ID: ${giveawayId}` })
         .setColor('#0099ff')
-        .setThumbnail('https://i.hizliresim.com/9sgzpr0.png')
+        .setThumbnail('https://i.imgur.com/bCawYVT.png')
         .setTimestamp(Date.now() + duration);
 
     const toggleButton = new ButtonBuilder()
@@ -126,7 +126,7 @@ async function updateGiveawayMessage(client, giveawayId, remainingTime) {
                 .setDescription(`Ödül: ${giveawayData.prize}\nKatılmak veya ayrılmak için butona tıklayın!\n\nBitiş zamanı: <t:${Math.floor((Date.now() + remainingTime) / 1000)}:R>`)
                 .setFooter({ text: `Çekiliş ID: ${giveawayId}` })
                 .setColor('#0099ff')
-                .setThumbnail('https://i.hizliresim.com/9sgzpr0.png')
+                .setThumbnail('https://i.imgur.com/bCawYVT.png')
                 .setTimestamp(Date.now() + remainingTime);
 
             await message.edit({ embeds: [updatedEmbed] });
@@ -157,7 +157,7 @@ async function endGiveaway(client, giveawayId) {
             .setTitle('Çekiliş Bitti!')
             .setDescription(`Ödül: ${giveawayData.prize}\nBu çekilişte hiç katılımcı yok.`)
             .setColor('#FF0000')
-            .setThumbnail('https://i.hizliresim.com/9sgzpr0.png')
+            .setThumbnail('https://i.imgur.com/bCawYVT.png')
             .setTimestamp();
 
         await channel.send({ embeds: [endEmbed] });
@@ -175,7 +175,7 @@ async function endGiveaway(client, giveawayId) {
                 .setTitle('Çekiliş Bitti!')
                 .setDescription(`Ödül: ${giveawayData.prize}\nBu çekilişte kazanan çıkmadı.`)
                 .setColor('#FF0000')
-                .setThumbnail('https://i.hizliresim.com/9sgzpr0.png')
+                .setThumbnail('https://i.imgur.com/bCawYVT.png')
                 .setTimestamp();
 
             await channel.send({ embeds: [endEmbed] });
@@ -184,7 +184,7 @@ async function endGiveaway(client, giveawayId) {
                 .setTitle('Çekiliş Bitti!')
                 .setDescription(`Ödül: ${giveawayData.prize}\nKazanan: ${winnerUser.tag}`)
                 .setColor('#FF0000')
-                .setThumbnail('https://i.hizliresim.com/9sgzpr0.png')
+                .setThumbnail('https://i.imgur.com/bCawYVT.png')
                 .setTimestamp();
 
             await channel.send(`🎉 Tebrikler <@${winnerUser.id}>! Sen kazandın! 🎉`);

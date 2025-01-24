@@ -32,7 +32,7 @@ exports.run = async (client, message, args) => {
         .setTitle('Çekiliş Katılımcıları')
         .setDescription(`Ödül: ${giveawayData.prize}\nKatılımcılar:\n${participantList}`)
         .setColor('#0099ff')
-        .setThumbnail('https://i.hizliresim.com/9sgzpr0.png')
+        .setThumbnail('https://i.imgur.com/bCawYVT.png')
         .setTimestamp();
 
     const attachment = new AttachmentBuilder(filePath);

@@ -101,9 +101,7 @@ client.on("ready", () => {
 async function checkActiveGiveaways(client) {
     console.log('Aktif çekilişler kontrol ediliyor...');
     const allGiveaways = await db.all();
-
-    console.log(`Toplam çekiliş sayısı: ${Object.keys(allGiveaways).length}`);
-
+        
     for (const [key, value] of Object.entries(allGiveaways)) {
         if (key.startsWith('giveaway_') && !value.ended) {
             const giveawayId = key.split('_')[1];
@@ -141,7 +139,7 @@ async function endGiveaway(client, giveawayId) {
             .setTitle('Çekiliş Bitti!')
             .setDescription(`Ödül: ${giveawayData.prize}\nBu çekilişte hiç katılımcı yok.`)
             .setColor('#FF0000')
-            .setThumbnail('https://i.hizliresim.com/9sgzpr0.png')
+            .setThumbnail('https://i.imgur.com/bCawYVT.png')
             .setTimestamp();
 
         await channel.send({ embeds: [endEmbed] });
@@ -159,7 +157,7 @@ async function endGiveaway(client, giveawayId) {
                 .setTitle('Çekiliş Bitti!')
                 .setDescription(`Ödül: ${giveawayData.prize}\nBu çekilişte kazanan çıkmadı.`)
                 .setColor('#FF0000')
-                .setThumbnail('https://i.hizliresim.com/9sgzpr0.png')
+                .setThumbnail('https://i.imgur.com/bCawYVT.png')
                 .setTimestamp();
 
             await channel.send({ embeds: [endEmbed] });
@@ -168,7 +166,7 @@ async function endGiveaway(client, giveawayId) {
                 .setTitle('Çekiliş Bitti!')
                 .setDescription(`Ödül: ${giveawayData.prize}\nKazanan: ${winnerUser.tag}`)
                 .setColor('#FF0000')
-                .setThumbnail('https://i.hizliresim.com/9sgzpr0.png')
+                .setThumbnail('https://i.imgur.com/bCawYVT.png')
                 .setTimestamp();
 
             await channel.send(`🎉 Tebrikler <@${winnerUser.id}>! Sen kazandın! 🎉`);
@@ -201,7 +199,7 @@ async function updateGiveawayMessage(client, giveawayId, remainingTime) {
                 .setDescription(`Ödül: ${giveawayData.prize}\nKatılmak veya ayrılmak için butona tıklayın!\n\nBitiş zamanı: <t:${Math.floor((Date.now() + remainingTime) / 1000)}:R>`)
                 .setFooter({ text: `Çekiliş ID: ${giveawayId}` })
                 .setColor('#0099ff')
-                .setThumbnail('https://i.hizliresim.com/9sgzpr0.png')
+                .setThumbnail('https://i.imgur.com/bCawYVT.png')
                 .setTimestamp(Date.now() + remainingTime);
 
             await message.edit({ embeds: [updatedEmbed] });

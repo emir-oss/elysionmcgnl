@@ -83,7 +83,7 @@ exports.run = async (client, message, args) => {
     const homepageEmbed = new EmbedBuilder()
         .setTitle('Yardım Menüsü')
         .setDescription('Lütfen bir kategori seçin:')
-        .setImage('https://i.hizliresim.com/812sw38.gif')
+        .setImage('https://giffiles.alphacoders.com/219/219370.gif')
         .setColor(0x0099FF)
         .setTimestamp();
 
@@ -175,7 +175,7 @@ exports.run = async (client, message, args) => {
                 const subcategoryEmbed = new EmbedBuilder()
                     .setTitle(`${currentCategory} - Alt Kategoriler`)
                     .setDescription('Lütfen bir alt kategori seçin:')
-                    .setImage('https://i.hizliresim.com/kqyhmtq.gif')
+                    .setImage('https://media.tenor.com/_3euyl5JqWAAAAAM/naofumi-iwatani.gif')
                     .setColor(0x0099FF)
                     .setTimestamp();
 

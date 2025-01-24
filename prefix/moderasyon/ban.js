@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
         const embed = new EmbedBuilder()
             .setColor(Colors.Red)
             .setDescription(`**${targetUser.user.tag} yasaklandı.**\nSebep: ${reason}`)
-            .setImage('https://i.hizliresim.com/oekcos5.gif')
+            .setImage('https://i.imgur.com/wkfbyva.gif')
             .setTimestamp();
         message.reply({ embeds: [embed] });
 

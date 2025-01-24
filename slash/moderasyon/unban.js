@@ -30,7 +30,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setColor(Colors.Green)
                 .setDescription(`**ID'si ${targetUserId} olan kullanıcının yasağı kaldırıldı.**\nSebep: ${reason}`)
-                .setImage('https://i.hizliresim.com/oekcos5.gif')
+                .setImage('https://i.imgur.com/wkfbyva.gif')
                 .setTimestamp();
             return interaction.reply({ embeds: [embed] });
 
