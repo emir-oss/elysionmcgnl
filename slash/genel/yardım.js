@@ -45,8 +45,6 @@ module.exports = {
                     { name: "> ping", description: "\n Pingi gösterir." },
                     { name: "> botbilgi/istatistik/botstat", description: "\n Botun istatistiklerini gösterir." },
                     { name: "> statkanalları/statschannels", description: "\n Stat Kanallarını kurarsın." }
-    
-    
                 ],
                 "Okane": [
                     { name: "> trivia", description: "\n Anime trivia oyununu oynarsın **(yanlızca prefix)**." },
@@ -71,7 +69,6 @@ module.exports = {
                 ],
                 "Destek": [
                     { name: "> desteksistemi", description: "\n Destek sistemini açmaya veye kapatmaya yarar." },
-    
                 ]
             },
             "Sunucu": [
@@ -83,6 +80,7 @@ module.exports = {
                 { name: "> özeloda kapat", description: "\n Özel oda sistemini kapatır **(yanlızca prefix)**." }
             ]
         };
+
         const homepageEmbed = new EmbedBuilder()
             .setTitle('Yardım Menüsü')
             .setDescription('Lütfen bir kategori seçin:')
@@ -115,8 +113,7 @@ module.exports = {
         const itemsPerPage = 10;
         let currentCategory = null;
         let isSubcategory = false;
-        let subCategoryName = null; 
-
+        let subCategoryName = null;
 
         collector.on('collect', async (buttonInteraction) => {
             if (buttonInteraction.user.id !== interaction.user.id) {
@@ -158,7 +155,13 @@ module.exports = {
                         .setStyle(ButtonStyle.Primary)
                         .setDisabled(currentPage + 1 >= totalPages);
 
-                    const categoryActionRow = new ActionRowBuilder().addComponents(previousButton, nextButton);
+                    const backButton = new ButtonBuilder()
+                        .setCustomId('home')
+                        .setLabel('Ana Menü')
+                        .setEmoji('🏠')
+                        .setStyle(ButtonStyle.Success);
+
+                    const categoryActionRow = new ActionRowBuilder().addComponents(previousButton, nextButton, backButton);
 
                     await buttonInteraction.update({ 
                         embeds: [categoryEmbed], 
@@ -178,7 +181,7 @@ module.exports = {
                         .setCustomId('home')
                         .setLabel('Ana Menü')
                         .setEmoji('🏠')
-                        .setStyle(ButtonStyle.Success)
+                        .setStyle(ButtonStyle.Success);
 
                     const subcategoryActionRow = new ActionRowBuilder().addComponents(subcategoryButtons, backButton);
 
@@ -196,7 +199,7 @@ module.exports = {
                 }
             } else if (currentCategory && categories[currentCategory][buttonInteraction.customId] && !isSubcategory) {
                 isSubcategory = true;
-                subCategoryName = buttonInteraction.customId; 
+                subCategoryName = buttonInteraction.customId;
                 const totalPages = Math.ceil(categories[currentCategory][subCategoryName].length / itemsPerPage);
                 const paginatedCommands = categories[currentCategory][subCategoryName].slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
 
@@ -223,10 +226,9 @@ module.exports = {
                     .setCustomId('home')
                     .setLabel('Ana Menü')
                     .setEmoji('🏠')
-                    .setStyle(ButtonStyle.Success)
+                    .setStyle(ButtonStyle.Success);
 
-
-                const subcategoryActionRow = new ActionRowBuilder().addComponents( previousButton, nextButton,backButton);
+                const subcategoryActionRow = new ActionRowBuilder().addComponents(previousButton, nextButton, backButton);
 
                 await buttonInteraction.update({ 
                     embeds: [subcategoryEmbed], 
@@ -275,10 +277,9 @@ module.exports = {
                     .setCustomId('home')
                     .setLabel('Ana Menü')
                     .setEmoji('🏠')
-                    .setStyle(ButtonStyle.Success)
+                    .setStyle(ButtonStyle.Success);
 
-
-                const updatedActionRow = new ActionRowBuilder().addComponents(previousButton, nextButton,backButton);
+                const updatedActionRow = new ActionRowBuilder().addComponents(previousButton, nextButton, backButton);
 
                 await buttonInteraction.update({ 
                     embeds: [updatedEmbed], 

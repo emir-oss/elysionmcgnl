@@ -49,20 +49,20 @@ module.exports = {
             if (i.customId === 'setup') {
                 const choice = i.values[0];
                 await i.deferUpdate();
-
+        
                 const confirmEmbed = new EmbedBuilder()
                     .setColor('#0099ff')
                     .setTitle('Kurulum Onayı')
                     .setDescription(`${choice.replace('_', ' ')} işlemini başlatmak istediğinizden emin misiniz? Onaylamak için 5 saniye içinde "eminim" yazın.`);
-
-                await i.followUp({ embeds: [confirmEmbed], ephemeral: true });
-
+        
+                await i.editReply({ embeds: [confirmEmbed], components: [], ephemeral: true });
+        
                 const messageCollector = i.channel.createMessageCollector({
                     filter: m => m.author.id === interaction.user.id,
                     time: 5000,
                     max: 1
                 });
-
+        
                 messageCollector.on('collect', async m => {
                     if (m.content.toLowerCase() === 'eminim') {
                         switch (choice) {
@@ -77,17 +77,18 @@ module.exports = {
                                 break;
                         }
                     } else {
-                        interaction.followUp({ content: 'Kurulum işlemi iptal edildi.', ephemeral: true });
+                        await i.followUp({ content: 'Kurulum işlemi iptal edildi.', ephemeral: true });
                     }
                 });
-
+        
                 messageCollector.on('end', collected => {
                     if (collected.size === 0) {
-                        interaction.followUp({ content: 'Zaman aşımı: Kurulum işlemi iptal edildi.', ephemeral: true });
+                        i.followUp({ content: 'Zaman aşımı: Kurulum işlemi iptal edildi.', ephemeral: true });
                     }
                 });
             }
         });
+        
     }
 };
 

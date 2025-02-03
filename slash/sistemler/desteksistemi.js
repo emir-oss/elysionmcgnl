@@ -9,7 +9,7 @@ module.exports = {
         {
             name: 'komut',
             description: 'Destek sistemini aç veya kapat',
-            type: 3, // STRING
+            type: 3, 
             required: true,
             choices: [
                 {
