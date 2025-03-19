@@ -18,16 +18,28 @@
 - [🚀 Başlarken](#başlarken)
 - [👤 Yazar](#yazar)
 - [💾 Kurulum](#kurulum)
+- [✨ Yeni Özellikler v1.1.0](#yeni-özellikler-v100)
 
 ---
 
 ## 🔧 Gereksinimler
 
-- [Node.js](https://nodejs.org/en/)
+- [Node.js](https://nodejs.org/en/) v21 veya üzeri
+- Discord.js v14
 
 ## 🚀 Başlarken
 
 Öncelikle yerel makinenizde gerekli tüm araçların kurulu olduğundan emin olun ve ardından bu adımlara devam edin.
+
+## ✨ Yeni Özellikler v1.1.0
+
+- **🌡️ Hava Durumu Komutu**: `/havadurumu [şehir]` ve `n.havadurumu [şehir]` ile dünya genelinde hava durumu bilgisi alabilirsiniz.
+- **🎰 Slot Makinesi**: `n.slot [miktar]` komutu ile ekonomi sistemi üzerinden şansınızı test edin.
+- **💰 Çalma Komutu**: `n.rob @kullanıcı` ile diğer kullanıcılardan para çalmayı deneyin.
+- **🛡️ Anti-Raid Sistemi**: `/antiraid` komutu ile sunucunuzu ani saldırılardan koruyun.
+- **📊 Geliştirilmiş Bot Bilgi Komutu**: `/bilgi` ve `n.bilgi` ile bot hakkında detaylı bilgilere erişin.
+- **🏓 Ping Komutu**: `/ping` ve `n.ping` ile bot ve API gecikmesini ölçün.
+- **⚙️ Daha Kararlı ve Optimize Edilmiş Performans**: Hata yönetimi güçlendirildi, daha az sorun yaşayacaksınız.
 
 ## 💾 Kurulum
 

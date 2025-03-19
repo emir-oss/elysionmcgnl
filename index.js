@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Partials } = require("discord.js");
+const { Client, GatewayIntentBits, Partials, Collection } = require("discord.js");
 const config = require("./config.js");
 const db = require("./croxydb/croxydb.json");
 
@@ -29,6 +29,48 @@ const client = new Client({
     GatewayIntentBits.DirectMessageTyping,
     GatewayIntentBits.MessageContent, 
   ],
+  failIfNotExists: false,
+  allowedMentions: {
+    parse: ['users', 'roles'],
+    repliedUser: false
+  }
+});
+
+process.on('unhandledRejection', (error, promise) => {
+  console.error('Yakalanamayan Promise Reddi:');
+  console.error(`Promise: ${promise}`);
+  console.error(`Hata: ${error}`);
+  console.error(error.stack || error);
+  
+  if (client.isReady() && config.logChannelId) {
+    const logChannel = client.channels.cache.get(config.logChannelId);
+    if (logChannel) {
+      logChannel.send({
+        content: `⚠️ **Kritik Hata Bilgisi**\n\`\`\`js\n${error.stack || error}\n\`\`\`\nTarih: ${new Date().toLocaleString('tr-TR')}`
+      }).catch(console.error);
+    }
+  }
+});
+
+process.on('uncaughtException', (error) => {
+  console.error('Yakalanamayan İstisna:');
+  console.error(`Hata: ${error}`);
+  console.error(error.stack || error);
+  
+  if (client.isReady() && config.logChannelId) {
+    const logChannel = client.channels.cache.get(config.logChannelId);
+    if (logChannel) {
+      logChannel.send({
+        content: `⚠️ **Kritik Hata Bilgisi**\n\`\`\`js\n${error.stack || error}\n\`\`\`\nTarih: ${new Date().toLocaleString('tr-TR')}`
+      }).catch(console.error);
+    }
+  }
+});
+
+process.on('SIGINT', () => {
+  console.log('Bot Kapanıyor...');
+  client.destroy();
+  process.exit(0);
 });
 
 module.exports = client;
@@ -43,8 +85,8 @@ for (const file of eventFiles) {
 }
 
 client.login(config.token).catch(e => {
-console.log(`──────────────────────────────────────────
-✕ | Geçersiz Bot Tokeni!
+  console.log(`──────────────────────────────────────────
+✕ | Geçersiz Bot Tokeni! Hata: ${e.message}
 ──────────────────────────────────────────`)
 })
 

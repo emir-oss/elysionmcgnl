@@ -1,8 +1,8 @@
 const { EmbedBuilder, Colors, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require("discord.js");
 
 module.exports = {
-    name: "yardım",
-    description: "Komutlar hakkında yardım al.",
+    name: "yardımlar",
+    description: "Komutlar hakkında yardım al. (Eski yardım komutu)",
     options: [],
     run: async (client, interaction) => {
         const categories = {
@@ -43,12 +43,15 @@ module.exports = {
                     { name: "> yardım", description: "\n Komutlar hakkında yardım sağlar." },
                     { name: "> yaz", description: "\n Yazdığınız metni yazar." },
                     { name: "> ping", description: "\n Pingi gösterir." },
-                    { name: "> botbilgi/istatistik/botstat", description: "\n Botun istatistiklerini gösterir." },
+                    { name: "> bilgi", description: "\n Botun detaylı bilgilerini gösterir." },
+                    { name: "> havadurumu", description: "\n Belirtilen şehrin hava durumunu gösterir." },
                     { name: "> statkanalları/statschannels", description: "\n Stat Kanallarını kurarsın." }
                 ],
                 "Okane": [
                     { name: "> trivia", description: "\n Anime trivia oyununu oynarsın **(yanlızca prefix)**." },
                     { name: "> bj/blackjack", description: "\n Blackjack oyununu oynarsın **(yanlızca prefix)**." },
+                    { name: "> slot", description: "\n Slot makinesini çevirerek şansını denersin **(yanlızca prefix)**." },
+                    { name: "> rob/çal", description: "\n Başka bir kullanıcıdan para çalarsın **(yanlızca prefix)**." },
                     { name: "> daily", description: "\n Günlük ödül alırsın **(yanlızca prefix)**." },
                     { name: "> okane/bal", description: "\n Kullanıcının okane (oyun parası) miktarını gösterir **(yanlızca prefix)**." },
                     { name: "> rank/level", description: "\n Kullanıcının seviyesini gösterir." },
@@ -65,7 +68,8 @@ module.exports = {
             "Sistemler": {
                 "Koruma": [
                     { name: "> koruma", description: "\n Koruma sistemlerini aç/kapat." },
-                    { name: "> wlrole/whitelistrole", description: "\n Koruma sistemlerinden muaf tutulacak rolleri yönetir." }
+                    { name: "> wlrole/whitelistrole", description: "\n Koruma sistemlerinden muaf tutulacak rolleri yönetir." },
+                    { name: "> antiraid", description: "\n Sunucuyu ani saldırılardan korumak için anti-raid sistemini ayarlar." }
                 ],
                 "Destek": [
                     { name: "> desteksistemi", description: "\n Destek sistemini açmaya veye kapatmaya yarar." },
